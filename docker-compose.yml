@@ -20,5 +20,24 @@ services:
       retries: 20
     restart: unless-stopped
 
+  backend:
+    build:
+      context: ./apps/backend
+      dockerfile: Dockerfile
+    container_name: app-api
+    environment:
+      DB_HOST: ${DB_HOST}
+      DB_PORT: 5432
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
+      DB_NAME: ${DB_NAME}
+      PORT: ${APP_PORT}
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:${APP_PORT}"
+    restart: unless-stopped
+
 volumes:
   db-data:
