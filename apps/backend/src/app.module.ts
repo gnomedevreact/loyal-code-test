@@ -6,19 +6,18 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
-import typeorm from './data-source';
+import { typeormConfig } from './data-source';
 
 @Module({
   imports: [
     ProductsModule,
     ConfigModule.forRoot({
       isGlobal: true,
-      load: [typeorm],
     }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
-      useFactory: (config: ConfigService) => config.get('typeorm'),
+      useFactory: () => typeormConfig,
     }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'uploads'),

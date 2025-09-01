@@ -21,7 +21,8 @@
     "typeorm": "ts-node ./node_modules/typeorm/cli",
     "migration:run": "npm run typeorm migration:run -- -d ./src/data-source.ts",
     "migration:generate": "npm run typeorm -- -d ./src/data-source.ts migration:generate",
-    "migration:revert": "npm run typeorm -- -d ./src/data-source.ts migration:revert"
+    "migration:revert": "npm run typeorm -- -d ./src/data-source.ts migration:revert",
+    "migration:run:prod": "typeorm migration:run -d ./dist/data-source.js"
   },
   "dependencies": {
     "@nestjs/common": "^11.1.6",
