@@ -38,20 +38,20 @@ services:
     ports:
       - "8080:${APP_PORT}"
     restart: unless-stopped
-#
-#  frontend:
-#    build:
-#      context: ./apps/frontend
-#      dockerfile: Dockerfile
-#      args:
-#        NEXT_PUBLIC_BACKEND_URL: ${BACKEND_URL}
-#    container_name: app-front
-#    depends_on:
-#      backend:
-#        condition: service_started
-#    ports:
-#      - "3000:3000"
-#    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./apps/frontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_BACKEND_URL: ${BACKEND_URL}
+    container_name: app-front
+    depends_on:
+      backend:
+        condition: service_started
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
 
 volumes:
   db-data:
