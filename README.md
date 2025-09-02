@@ -20,7 +20,7 @@ APP_PORT=3007
 
 # frontend
 
-NEXT_PUBLIC_BACKEND_URL=http://localhost:8080
+BACKEND_URL=http://localhost:8080
 ```
 
 - `DB_USER`, `DB_PASS` — логин и пароль для Postgres

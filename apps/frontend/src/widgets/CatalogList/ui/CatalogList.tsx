@@ -74,8 +74,8 @@ export const CatalogList = () => {
         <p>Loading...</p>
       ) : (
         <div className="p-4 grid grid-cols-1 md:grid-cols-3 gap-5">
-          {products?.items.map((product, index) => (
-            <ProductCard product={product} key={index} />
+          {products?.items.map((product) => (
+            <ProductCard product={product} key={product.id} />
           ))}
         </div>
       )}
