@@ -35,7 +35,7 @@ BACKEND_URL=http://localhost:8080
 Выполните команду:
 
 ```bash
-docker compose up -d --build
+docker-compose up -d --build
 ```
 
 Это поднимет три сервиса:
